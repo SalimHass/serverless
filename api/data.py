@@ -17,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
     else:
         message= "hi stranger"
     
-    message += f"/ngreeting from python version {platform.python_version()}"
+    message += f"\ngreeting from python version {platform.python_version()}"
     
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
