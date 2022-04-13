@@ -6,21 +6,10 @@ from datetime import datetime
 class handler(BaseHTTPRequestHandler):
 
   def do_GET(self):
-    s=self.path
-    url_components= parse.urlsplit(s)
-    query_string_list=parse.parse_sql(url_components.query)
-    dic= dict(query_string_list)
-    name= dic.get("name")
-
-    if name:
-        message= f"hi {name}"
-    else:
-        message= "hi stranger"
     
-    message += f"/ngreeting from python version {platform.python_version()}"
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    self.wfile.write(message.encode)
+    #self.wfile.write(message.encode)
     self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
     return
