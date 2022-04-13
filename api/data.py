@@ -17,11 +17,10 @@ class handler(BaseHTTPRequestHandler):
     else:
         message= "hi stranger"
     
-    message += f"\ngreeting from python version {platform.python_version()}"
     
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
     self.wfile.write(message.encode())
-    self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
+    self.wfile.write(("the time now is " + str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))).encode())
     return
